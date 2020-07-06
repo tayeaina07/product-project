@@ -14,10 +14,7 @@ def create(request):
             product = Product()
             product.title = request.POST['title']
             product.body = request.POST['body']
-            if request.POST['url'].startswith('http://') or request.POST['url'].startswith('https://'):
-                product.url = request.POST['url']
-            else:
-                product.url = 'http://' + request.POST['url']
+            
             product.icon = request.FILES['icon']
             product.image = request.FILES['image']
             product.pub_date = timezone.datetime.now()
